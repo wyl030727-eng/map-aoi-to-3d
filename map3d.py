@@ -273,7 +273,7 @@ class Handler(BaseHTTPRequestHandler):
         if self.path.split('?')[0] != '/build':
             return self._send(404, b'not found', 'text/plain')
         try:
-            data = json.loads(self.rfile.read(int(self.headers.get('Content-Length', 0)))
+            data = json.loads(self.rfile.read(int(self.headers.get('Content-Length', 0))))
             bbox = [float(x) for x in data['bbox']]
             validate(bbox)
             glb, manifest = build_cached(bbox, texture=bool(data.get('texture')),
