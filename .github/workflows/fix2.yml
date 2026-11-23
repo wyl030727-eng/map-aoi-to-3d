@@ -1,0 +1,29 @@
+name: fix2
+on:
+  push:
+    paths: ['.github/workflows/fix2.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove stray parenthesis
+        run: |
+          python - <<'PY'
+          import ast
+          p = 'map3d.py'
+          s = open(p, encoding='utf-8').read()
+          bad = '            data = json.loads(raw))'
+          good = '            data = json.loads(raw)'
+          assert bad in s
+          s = s.replace(bad, good, 1)
+          ast.parse(s)
+          open(p, 'w', encoding='utf-8').write(s)
+          PY
+          git config user.name map3d-bot
+          git config user.email bot@users.noreply.github.com
+          git add map3d.py
+          git commit -m "Remove stray parenthesis"
+          git push
