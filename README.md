@@ -96,7 +96,3 @@ python map3d.py --bbox 117.1935,39.1215,117.1985,39.1255 -o heping2.glb
 * 建筑高度：Building Volume Panel of 106 Chinese Cities 2018-2023（Harvard Dataverse，doi:10.7910/DVN/3LTFEW，CC0）。
 * 底图：高德瓦片仅用于本地原型展示；对外发布需按其服务条款授权并标注审图号。
 * 可选卫星影像：Esri World Imagery，受 Esri 条款约束，仅限原型演示。
-
-## 后续方向
-
-需要更真实的天际线时，可把高度源换成商业三维城市模型或测绘成果；需要更精细的街景时，可在白模基础上单独给道路/水面做材质，而不是回到全贴图。
