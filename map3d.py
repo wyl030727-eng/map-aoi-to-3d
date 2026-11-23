@@ -274,7 +274,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(404, b'not found', 'text/plain')
         try:
             raw = self.rfile.read(int(self.headers.get('Content-Length', 0)))
-            data = json.loads(raw))
+            data = json.loads(raw)
             bbox = [float(x) for x in data['bbox']]
             validate(bbox)
             glb, manifest = build_cached(bbox, texture=bool(data.get('texture')),
