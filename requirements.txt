@@ -1,0 +1,6 @@
+numpy
+shapely
+trimesh
+pillow
+mapbox-earcut
+rasterio
